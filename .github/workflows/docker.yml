@@ -1,12 +1,5 @@
-name: Build and Push Docker Image
-
-on:
-  push:
-    branches: [main]
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -31,7 +24,8 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-        REPO_LOWER=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
-        docker build -t ghcr.io/$REPO_LOWER:latest .
-        docker push ghcr.io/$REPO_LOWER:latest
+          REPO_LOWER=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
+          docker build -t ghcr.io/$REPO_LOWER:latest .
+          docker push ghcr.io/$REPO_LOWER:latest
+
 
