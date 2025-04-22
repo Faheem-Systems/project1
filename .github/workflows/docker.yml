@@ -7,7 +7,6 @@ on:
 permissions:
   contents: write    # Allow the action to write to the repository
   packages: write    # Allow the action to push Docker images to GitHub Container Registry
-  id-token: read     # Allow the action to read ID tokens (if necessary)
 
 jobs:
   build:
