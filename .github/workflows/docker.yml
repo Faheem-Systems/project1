@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: write    # Allow the action to write to the repository
+  packages: write    # Allow the action to push Docker images to GitHub Container Registry
+  id-token: read     # Allow the action to read ID tokens (if necessary)
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -33,6 +38,8 @@ jobs:
           REPO_LOWER=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
           docker build -t ghcr.io/$REPO_LOWER:latest .
           docker push ghcr.io/$REPO_LOWER:latest
+
+
 
 
 
