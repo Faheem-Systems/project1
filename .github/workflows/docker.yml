@@ -38,6 +38,17 @@ jobs:
           docker build -t ghcr.io/$REPO_LOWER:latest .
           docker push ghcr.io/$REPO_LOWER:latest
 
+      - name: Deploy to Kubernetes via Bastion Host
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.BASTION_HOST }}
+          username: ${{ secrets.BASTION_USER }}
+          password: ${{ secrets.BASTION_PASSWORD }}
+          script: |
+            sudo su
+            cd /home/faheem/devops-project
+            helm install springboot-app ./springboot-app
+
 
 
 
