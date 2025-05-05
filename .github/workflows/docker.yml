@@ -44,7 +44,7 @@ jobs:
           host: ${{ secrets.BASTION_HOST }}
           username: ${{ secrets.BASTION_USER }}
           password: ${{ secrets.BASTION_PASSWORD }}
-          timeout: 60
+          timeout: 60s
           script: |
             sudo su
             ls
