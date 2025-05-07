@@ -1,0 +1,7 @@
+image:
+  repository: ghcr.io/faheem-systems/project1
+  tag: latest
+
+ingress:
+  host: springboot.local
+
